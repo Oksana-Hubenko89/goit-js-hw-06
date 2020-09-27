@@ -1,9 +1,12 @@
 // logo
 // Автопроверка домашних заданий по JavaScript
 
-// Задача 2 / 10
+// Задача 8 / 10
 // Модуль:
 // 6
+
+// Скрыть задание
+// Задача 6-8
 const users = [
   {
     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -90,62 +93,25 @@ const users = [
     age: 39,
   },
 ];
+// filter, includes и map
+// Получи массив имен всех пользователей у которых есть друг с заданным именем.
 
-// Скрыть задание
-// Задача 6-2
-// filter
-// Получи массив объектов пользователей, отобранный по цвету глаз (свойство eyeColor), используя деструктурирующее присваивание для
-//параметра функции({ eyeColor }) без пробелов и переносов на новую строку.
+// Используй деструктурирующее присваивание для параметра функции {friends}и ({name}) без пробелов и переносов на новую строку
 
-// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice,
-//push и т.п.мутирующие методы.
+// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
 
-// Деструктурирующее присваивание для параметра функции
-// PS Деструктурирующее присваивание (ДП):
-
-// Объект как параметр без ДП
-// const object = {num : 2}
-// function getNum (obj) { return obj.num; }
-// console.log(getNum(object)) // 2
-// ДП
-// const object = {num : 2}
-// // const num  =  object.num;
-// const { num } = object;
-// console.log(num) // 2
-// Объект как параметр c ДП
-// const object = {num : 2}
-// //function getNum (obj) { return obj.num; }
-// function getNum ({num}) { return num; }
-// console.log(getNum(object)) // 2
 // Редактор JavaScript:
 
-// Write code under this line
+// // Write code under this line
 
-const getUsersWithEyeColor = (users, color) =>
-  users.filter(({ eyeColor }) => eyeColor === color);
-console.log(getUsersWithEyeColor(users, "blue"));
+const getUsersWithFriend = (users, friendName) =>
+  users
+    .filter(({ friends }) => friends.includes(friendName))
+    .map(({ name }) => name);
+console.log(getUsersWithFriend(users, "Briana Decker"));
 
-// /* [
+// // [ 'Sharlene Bush', 'Sheree Anthony' ]
 
-//   {
+console.log(getUsersWithFriend(users, "Goldie Gentry"));
 
-//     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
-
-//     name: "Moore Hensley",
-
-//     email: "moorehensley@indexia.com",
-
-//     eyeColor: "blue",
-
-//     friends: ["Sharron Pace"],
-// 12
-//     isActive: false,
-// 13
-//     balance: 2811,
-// 14
-//     skills: ["ipsum", "lorem"],
-// 15
-//     gender: "male",
-// 16
-//     age: 37,
-// 17/*
+// // [ 'Elma Head', 'Sheree Anthony' ]

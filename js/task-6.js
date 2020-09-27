@@ -1,7 +1,7 @@
 // logo
 // Автопроверка домашних заданий по JavaScript
 
-// Задача 2 / 10
+// Задача 6 / 10
 // Модуль:
 // 6
 const users = [
@@ -90,62 +90,65 @@ const users = [
     age: 39,
   },
 ];
-
 // Скрыть задание
-// Задача 6-2
-// filter
-// Получи массив объектов пользователей, отобранный по цвету глаз (свойство eyeColor), используя деструктурирующее присваивание для
-//параметра функции({ eyeColor }) без пробелов и переносов на новую строку.
+// Задача 6-6
+// filter, map и создание анонимных объектов
+// Получи массив из объектов, которые состоят только из свойств name и email тех пользователей, которые попадают в возрастную категорию от min до max лет
+//(значение свойства age).
 
-// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice,
-//push и т.п.мутирующие методы.
+// Сравнение, пример
 
-// Деструктурирующее присваивание для параметра функции
-// PS Деструктурирующее присваивание (ДП):
+// const x = 13;
 
-// Объект как параметр без ДП
-// const object = {num : 2}
-// function getNum (obj) { return obj.num; }
-// console.log(getNum(object)) // 2
-// ДП
-// const object = {num : 2}
-// // const num  =  object.num;
-// const { num } = object;
-// console.log(num) // 2
-// Объект как параметр c ДП
-// const object = {num : 2}
-// //function getNum (obj) { return obj.num; }
-// function getNum ({num}) { return num; }
-// console.log(getNum(object)) // 2
+// // num больше 10 ?
+// const larger = num > 10; // true
+
+// // num меньше 100 ?
+// const smaller = 100 > num; // true
+
+// // num находитя между 10 и 100 ?
+// const between = smaller && larger; // true
+// Создание анонимных объектов:
+
+// const arr = Array(3)
+//   .fill('')
+//   .map((e,i) => ({['index']: i }));
+// /* [ { index: 0 }, { index: 1 }, { index: 2 } ] */
+// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
+
 // Редактор JavaScript:
 
-// Write code under this line
+// // Write code under this line
 
-const getUsersWithEyeColor = (users, color) =>
-  users.filter(({ eyeColor }) => eyeColor === color);
-console.log(getUsersWithEyeColor(users, "blue"));
+const getUsersWithAge = (array, min, max) =>
+  array
+    .filter(({ age }) => (age > min) & (age < max))
+    .map(({ name, email }) => ({ ["name"]: name, ["email"]: email }));
+
+console.log(getUsersWithAge(users, 20, 30));
 
 // /* [
-
-//   {
-
-//     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
-
-//     name: "Moore Hensley",
-
-//     email: "moorehensley@indexia.com",
-
-//     eyeColor: "blue",
-
-//     friends: ["Sharron Pace"],
+// 8
+//     { name: 'Ross Vazquez', email: 'rossvazquez@xinware.com' },
+// 9
+//     { name: 'Elma Head', email: 'elmahead@omatom.com' },
+// 10
+//     { name: 'Carey Barr', email: 'careybarr@nurali.com' }
+// 11
+// ] */
 // 12
-//     isActive: false,
+// ​
 // 13
-//     balance: 2811,
+// // console.log(getUsersWithAge(users, 30, 40));
 // 14
-//     skills: ["ipsum", "lorem"],
+// /* [
 // 15
-//     gender: "male",
+//     { name: 'Moore Hensley', email: 'moorehensley@indexia.com' },
 // 16
-//     age: 37,
-// 17/*
+//     { name: 'Sharlene Bush', email: 'sharlenebush@tubesys.com' },
+// 17
+//     { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com' },
+// 18
+//     { name: 'Sheree Anthony', email: 'shereeanthony@kog.com' }
+// 19
+// ] */

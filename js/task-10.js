@@ -1,9 +1,29 @@
-// logo
-// Автопроверка домашних заданий по JavaScript
-
-// Задача 2 / 10
+// Задача 10 / 10
 // Модуль:
 // 6
+
+// Скрыть задание
+// Задача 6-10
+// reduce, filter, sort
+// Получи массив всех умений всех пользователей (поле skills), при этом не должно быть повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
+
+// Слияние массивов:
+
+// const odd = [1, 3, 5];
+// const even = [2, 4, 6];
+
+// // 1
+// [...odd, ...even];
+// //  [1, 3, 5, 2, 4, 6]
+
+// // 2
+// odd.concat(even)
+// //  [1, 3, 5, 2, 4, 6]
+// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice, push и т.п. мутирующие методы.
+
+// Редактор JavaScript:
+
+// Write code under this line
 const users = [
   {
     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -90,62 +110,30 @@ const users = [
     age: 39,
   },
 ];
+// reduce, filter, sort
+const getSortedUniqueSkills = (users) =>
+  users
+    .reduce((skills, user) => [...skills, ...user.skills], [])
+    .filter((user, index, arr) => arr.indexOf(user) === index)
+    .sort();
+console.log(getSortedUniqueSkills(users));
 
-// Скрыть задание
-// Задача 6-2
-// filter
-// Получи массив объектов пользователей, отобранный по цвету глаз (свойство eyeColor), используя деструктурирующее присваивание для
-//параметра функции({ eyeColor }) без пробелов и переносов на новую строку.
+/* [ 'adipisicing', 'amet',
 
-// Используй только перебирающие методы массива которые не изменяют (не мутируют) исходный массив. Т.е. нельзя использовать for, splice,
-//push и т.п.мутирующие методы.
+ 'anim', 'commodo',
 
-// Деструктурирующее присваивание для параметра функции
-// PS Деструктурирующее присваивание (ДП):
+ 'culpa', 'elit',
 
-// Объект как параметр без ДП
-// const object = {num : 2}
-// function getNum (obj) { return obj.num; }
-// console.log(getNum(object)) // 2
-// ДП
-// const object = {num : 2}
-// // const num  =  object.num;
-// const { num } = object;
-// console.log(num) // 2
-// Объект как параметр c ДП
-// const object = {num : 2}
-// //function getNum (obj) { return obj.num; }
-// function getNum ({num}) { return num; }
-// console.log(getNum(object)) // 2
-// Редактор JavaScript:
+ 'ex', 'ipsum',
 
-// Write code under this line
+ 'irure', 'laborum',
 
-const getUsersWithEyeColor = (users, color) =>
-  users.filter(({ eyeColor }) => eyeColor === color);
-console.log(getUsersWithEyeColor(users, "blue"));
+ 'lorem', 'mollit',
 
-// /* [
+ 'non', 'nostrud',
 
-//   {
+ 'nulla', 'proident',
 
-//     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
+ 'tempor', 'velit',
 
-//     name: "Moore Hensley",
-
-//     email: "moorehensley@indexia.com",
-
-//     eyeColor: "blue",
-
-//     friends: ["Sharron Pace"],
-// 12
-//     isActive: false,
-// 13
-//     balance: 2811,
-// 14
-//     skills: ["ipsum", "lorem"],
-// 15
-//     gender: "male",
-// 16
-//     age: 37,
-// 17/*
+ 'veniam' ]; */
